@@ -1,0 +1,22 @@
+{
+  "name": "chronos",
+  "version": 2,
+  "builds": [
+    {
+      "src": "index.js",
+      "use": "@now/node"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "/index.js"
+    }
+  ],
+  "env": {
+    "DB_USER": "@chronos-db-user",
+    "DB_PASSWORD": "@chronos-db-password",
+    "DB_HOST": "@chronos-db-host",
+    "DB_NAME": "@chronos-db-name"
+  }
+}
