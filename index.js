@@ -1,12 +1,13 @@
 const express = require('express');
 const { config } = require('./config');
-
+const cors = require('cors');
 const tasksApi = require('./routes/tasks.js');
 const notFoundHandler = require('./utils/middlewares/notFoundHandler');
 const { logErrors, wrapErrors, errorHandler } = require('./utils/middlewares/errorHandlers');
 
 const app = express();
 app.use(express.json()); // middleware de bodyparser
+app.use(cors());
 tasksApi(app);
 app.use(notFoundHandler);
 app.use(logErrors);
